@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Home from './home';
+import {Route,Switch,Link,BrowserRouter} from 'react-router-dom'
+import Atualizar from './telaAtualizar';
+import Cadastro from './cadastro';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <BrowserRouter>
+            <Link to='/'></Link>
+            <Link to='atualizar'></Link>
+            <Link to='cadastro'></Link>
+            <Switch>
+              <Route exact path='/'><Home/></Route>
+              <Route path='/atualizar'><Atualizar/></Route>
+              <Route path='/cadastro'><Cadastro/></Route>
+            </Switch>
+       </BrowserRouter>
     </div>
   );
 }
